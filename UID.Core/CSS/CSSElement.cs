@@ -2,24 +2,18 @@
 
 namespace UID.Core.CSS
 {
-    public abstract class CSSElement
+    public abstract class CSSElement : ICSSRenderAble
     {
-        public string Key { get; set; }
-        public string Value { get; set; }
+        public string Key { get; }
+        public string Value { get; }
 
-        public CSSElement()
-        {
-            
-        }
-
-        public CSSElement SetStyle(string key, string value)
+        public CSSElement(string key, string value)
         {
             Key = key;
             Value = value;
-            return this;
         }
 
-        public override string ToString()
+        public virtual string Render()
         {
             return $"{Key}:{Value};";
         }

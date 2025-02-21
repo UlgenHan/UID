@@ -34,6 +34,14 @@ namespace UID.Core.HTML
             Children.Add(child);
         }
 
+        public void AddChildrenRange(IEnumerable<HTMLElement> children)
+        {
+            foreach (HTMLElement child in children)
+            {
+                AddChildren(child);
+            }
+        }
+
         public void AddStyle(CSSElement cssElement)
         {
             Styles.Add(cssElement);
