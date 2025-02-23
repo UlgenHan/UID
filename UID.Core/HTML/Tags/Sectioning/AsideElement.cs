@@ -2,6 +2,6 @@
 {
     public class AsideElement : HTMLElement
     {
-        public AsideElement() : base("aside") { }
+        public AsideElement() : base(HTMLTags.Aside) { }
     }
 }

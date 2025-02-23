@@ -2,6 +2,6 @@
 {
     public class FooterElement : HTMLElement
     {
-        public FooterElement() : base("footer") { }
+        public FooterElement() : base(HTMLTags.Footer) { }
     }
 }

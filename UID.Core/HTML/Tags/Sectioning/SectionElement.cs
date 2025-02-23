@@ -2,6 +2,6 @@
 {
     public class SectionElement : HTMLElement
     {
-        public SectionElement() : base("section") { }
+        public SectionElement() : base(HTMLTags.Section) { }
     }
 }

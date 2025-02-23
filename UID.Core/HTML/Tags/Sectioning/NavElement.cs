@@ -2,6 +2,6 @@
 {
     public class NavElement : HTMLElement
     {
-        public NavElement() : base("nav") { }
+        public NavElement() : base(HTMLTags.Nav) { }
     }
 }

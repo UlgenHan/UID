@@ -2,6 +2,6 @@
 {
     public class ArticleElement : HTMLElement
     {
-        public ArticleElement() : base("article") { }
+        public ArticleElement() : base(HTMLTags.Article) { }
     }
 }

@@ -2,6 +2,6 @@
 {
     public class HeaderElement : HTMLElement
     {
-        public HeaderElement() : base("header") { }
+        public HeaderElement() : base(HTMLTags.Header) { }
     }
 }

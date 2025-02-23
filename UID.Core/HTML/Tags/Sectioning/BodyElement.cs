@@ -2,6 +2,6 @@
 {
     public class BodyElement : HTMLElement
     {
-        public BodyElement() : base("body") { }
+        public BodyElement() : base(HTMLTags.Body) { }
     }
 }
