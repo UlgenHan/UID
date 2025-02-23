@@ -4,7 +4,7 @@ using UID.Core.CSS;
 
 namespace UID.Core.HTML
 {
-    public abstract class HTMLElement
+    public class HTMLElement
     {
 
         #region Fields

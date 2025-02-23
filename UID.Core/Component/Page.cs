@@ -1,22 +1,17 @@
-﻿using System.Text;
+﻿using UID.Core.CSS;
+using UID.Core.HTML;
 
 namespace UID.Core.Component
 {
     public class Page
     {
         public string NameHtml { get; set; }
-
-        public string ExtensionHtml { get; set; }
-
+        public string ExtensionHtml { get; set; } = "html";
         public string NameCss { get; set; }
+        public string ExtensionCss { get; set; } = "css";
 
-        public string ExtensionCss { get; set; }
-        public StringBuilder HtmlStringBuilder { get; set; } = new StringBuilder();
-
-        public StringBuilder CssStringBuilder { get; set; } = new StringBuilder();
-        public Page()
-        {
-            
-        }
+        public HTMLElement RootElement { get; set; }
+        public List<CSSSelector> CssSelectors { get; set; } = new List<CSSSelector>();
     }
+
 }
