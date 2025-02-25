@@ -5,59 +5,56 @@ using UID.Core.HTML.Tags.Sectioning;
 
 namespace UID.Core.Component
 {
-    public class UIComponent
+    public abstract class UIComponent
     {
-        //public List<HTMLElement> HeadHtmlElements { get; set; } = new List<HTMLElement>();
-        //public List<HTMLElement> BodyHtmlElements { get; set; } = new List<HTMLElement>();
-        //public List<CSSSelector> StyleSelectors { get; set; } = new List<CSSSelector>();
+        // The root HTML element for the component.
+        public HTMLElement RootElement { get; protected set; }
 
-        //public UIComponent()
-        //{ }
+        protected UIComponent(string rootTag)
+        {
+            // Initialize the root element using your HTMLTags or directly a string.
+            RootElement = new HTMLElement(rootTag);
+        }
 
-        //public Page GetPage()
-        //{
-        //    var page = new Page();
+        /// <summary>
+        /// Adds a CSS class to the root element.
+        /// </summary>
+        public UIComponent AddClass(string className)
+        {
+            RootElement.AddClasses(new CSSSelector(className));
+            return this;
+        }
 
-        //    page.NameCss = "Style";
-        //    page.ExtensionCss = "css";
+        /// <summary>
+        /// Adds a child HTMLElement to the root element.
+        /// </summary>
+        public UIComponent AddChild(HTMLElement child)
+        {
+            RootElement.AddChildren(child);
+            return this;
+        }
 
-        //    page.NameHtml = "index";
-        //    page.ExtensionHtml = "html";
+        /// <summary>
+        /// Adds multiple children to the root element.
+        /// </summary>
+        public UIComponent AddChildren(IEnumerable<HTMLElement> children)
+        {
+            RootElement.AddChildrenRange(children);
+            return this;
+        }
 
-        //    ////foreach (var element in HeadHtmlElements)
-        //    ////{
-        //    ////    page.HtmlStringBuilder.AppendLine(element.ToString());
-        //    ////}
+        /// <summary>
+        /// Override this method to build your component's internal structure.
+        /// </summary>
+        public abstract void Build();
 
-        //    //foreach (var element in BodyHtmlElements)
-        //    //{
-        //    //    page.HtmlStringBuilder.AppendLine(element.ToString());
-        //    //}
-
-        //    var htmlElements = BuildHtmlString();
-
-        //    page.HtmlStringBuilder.Append(htmlElements);
-
-        //    foreach (var element in StyleSelectors)
-        //    {
-        //        page.CssStringBuilder.AppendLine(element.ToString());
-        //    }
-
-        //    return page;
-        //}
-
-
-        //private HTMLElement BuildHtmlString()
-        //{
-        //    var html = new HtmlDocument();
-        //    html.AddChildrenRange(HeadHtmlElements);
-        //    html.AddChildrenRange(BodyHtmlElements);
-        //    return html;
-        //}
-
-        //public override string ToString()
-        //{
-        //    return base.ToString();
-        //}
+        /// <summary>
+        /// Renders the component into its final HTML code.
+        /// </summary>
+        public string Render()
+        {
+            return RootElement.ToString();
+        }
     }
+
 }

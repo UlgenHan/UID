@@ -2,7 +2,7 @@
 
 namespace UID.Core.CSS
 {
-    public abstract class CSSElement : ICSSRenderAble
+    public  class CSSElement : ICSSRenderAble
     {
         public string Key { get; }
         public string Value { get; }

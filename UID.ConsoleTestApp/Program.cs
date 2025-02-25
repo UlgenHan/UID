@@ -1,4 +1,5 @@
 ﻿using UID.Core.Component;
+using UID.Core.Component.Elements;
 using UID.Core.CSS;
 using UID.Core.CSS.CSSElements.Typography;
 using UID.Core.Generator;
@@ -27,27 +28,35 @@ var bodyHtml = new BodyElement();
 roothtml.AddChildren(headHtml);
 roothtml.AddChildren(bodyHtml);
 
-var paragrafItem = new HeadingElement(3);
+var navbar = new Navbar
+{
+    LogoText = "My Awesome Site",
+    MenuItems = new List<(string, string)>
+    {
+        ("Home", "#home"),
+        ("About", "#about"),
+        ("Products", "#products"),
+        ("Contact", "#contact")
+    },
+    ShowSearchBar = true
+};
 
-paragrafItem.AddChildren(new RawTextElement("This is the way ahahahahah"));
+navbar.Build();
 
-var btnStyle = new CSSSelector("btn")
-    .AddElement(new ColorElement("blue"));
-
-paragrafItem.AddClasses(btnStyle);
-
-
-
-bodyHtml.AddChildren(paragrafItem);
-page.CssSelectors.Add(btnStyle);
+bodyHtml.AddChildren(navbar.RootElement);
 
 // Create the main generator with injected generators
 var generator = new Generator(htmlGen, cssGen)
 {
-    GenerationPath = @"D:\Console\TryWay",
+    GenerationPath = @"C:\Experiment\Generator",
     ProjectName = "MyProject",
     Pages = new List<Page> { page }
 };
 
 
 generator.Generate();
+
+
+//Gereken SystemInformation tam Olarak buradads system 
+
+//generator.Generate();
